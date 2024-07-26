@@ -1,0 +1,7 @@
+<div class="text-center m-0">
+    <h1 class="text-4xl m-3 text-white">Clicker</h1>
+    <button (click)="onButtonClick()" [class.clicked]="isClicked" class="mt-5 border-solid border-2
+     border-sky-500 rounded-full bg-sky-600 w-60 h-60 text-6xl">{{ gameService.score }}</button>
+    <br>
+    <button (click)="resetScore()" class="text-3xl bg-white rounded mt-5 p-2 align-end">Reset</button>
+</div>
