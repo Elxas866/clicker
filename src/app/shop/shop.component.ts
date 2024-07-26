@@ -11,15 +11,14 @@ import { Item } from './Item';
 export class ShopComponent {
 
   items = this.shopService.getItems();
-  autoclickers = this.gameService.autoclickers;
 
   constructor(public gameService: GameService, private shopService: ShopService) {}
 
   buyItem(item: Item): void {
-    if (this.gameService.score >= 10) {
-      this.gameService.score -= 10;
+    if (this.gameService.score >= item.getPrice()) {
+      this.gameService.score -= item.getPrice();
+      this.gameService.enableItem(item);
+      item.setCount(item.getCount() + 1);
     }
-    this.gameService.enableItem(item);
-    this.autoclickers = this.gameService.autoclickers;
   }
 }

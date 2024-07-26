@@ -4,6 +4,6 @@
         <div class="text-white text-2xl">{{ item.getName() }} ({{ item.getInfo() }})</div>
         <div class="text-white text-xl">Price: {{ item.getPrice() }}</div>
         <button (click)="buyItem(item)" [disabled]="gameService.score < item.getPrice()" class="bg-sky-500 w-full p-2">Buy</button>
-        <p class="text-xl text-white">Using: {{ autoclickers }}</p>
+        <p class="text-xl text-white">Using: {{ item.getCount() }}</p>
     </div>
 </div>
