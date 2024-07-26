@@ -1,23 +1,28 @@
 import { Injectable } from '@angular/core';
+import { Item } from './shop/Item';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
 
-  private _score: number = 0;
+  public score: number = 0;
+  public autoclickers: number = 0;
 
   constructor() { }
 
-  get score(): number {
-    return this._score;
+  enableItem(item: Item): void {
+    switch (item.getName()) { 
+      case 'Autoclicker':
+        this.enableAutoclicker();
+        break;
+    }
   }
 
-  incrementScore(): void {
-    this._score++;
-  }
-
-  resetScore(): void { 
-    this._score = 0;
+  enableAutoclicker(): void {
+    setInterval(() => {
+      this.score++;
+    }, 1000);
+    this.autoclickers++;
   }
 }

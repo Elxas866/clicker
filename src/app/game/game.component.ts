@@ -13,7 +13,7 @@ export class GameComponent {
   constructor(public gameService: GameService) {}
 
   onButtonClick(): void { 
-    this.gameService.incrementScore();
+    this.gameService.score++;
     this.animateButton();
   }
 
@@ -25,6 +25,6 @@ export class GameComponent {
   }
 
   resetScore(): void { 
-    this.gameService.resetScore();
+    this.gameService.score = 0;
   }
 }
