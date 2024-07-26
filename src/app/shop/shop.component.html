@@ -1,9 +1,12 @@
 <h1 class="text-3xl text-white text-center mt-4">Shop</h1>
-<div class="items">
+<div class="items h-80" style="overflow:scroll;">
     <div *ngFor="let item of items" class="text-center p-3 bg-sky-950 m-3 border-sky-500 rounded">
         <div class="text-white text-2xl">{{ item.getName() }} ({{ item.getInfo() }})</div>
         <div class="text-white text-xl">Price: {{ item.getPrice() }}</div>
         <button (click)="buyItem(item)" [disabled]="gameService.score < item.getPrice()" class="bg-sky-500 w-full p-2">Buy</button>
         <p class="text-xl text-white">Using: {{ item.getCount() }}</p>
     </div>
+</div>
+<div class="text-center">
+    <button (click)="restartGame()" class="bg-white text-2xl rounded mt-3 p-2">Restart</button>
 </div>

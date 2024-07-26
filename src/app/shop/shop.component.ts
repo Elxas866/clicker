@@ -21,4 +21,9 @@ export class ShopComponent {
       item.setCount(item.getCount() + 1);
     }
   }
+
+  restartGame(): void {
+    // reload the page
+    window.location.reload();
+  }
 }
