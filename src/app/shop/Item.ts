@@ -1,15 +1,15 @@
 export class Item {
     private name: string;
     private price: number;
-    private info: string;
+    private cps: number;
     private timeoutInMs: number;
     private count: number = 0;
 
-    constructor(name: string, price: number, timeoutInMs: number, info: string) {
+    constructor(name: string, price: number, timeoutInMs: number, cps: number) {
         this.name = name;
         this.price = price;
         this.timeoutInMs = timeoutInMs;
-        this.info = info;
+        this.cps = cps;
     }
 
     public getName(): string {
@@ -24,8 +24,8 @@ export class Item {
         return this.timeoutInMs;
     }
 
-    public getInfo(): string {
-        return this.info;
+    public getCps(): number {
+        return this.cps;
     }
 
     public getCount(): number {

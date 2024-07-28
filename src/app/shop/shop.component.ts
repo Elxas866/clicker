@@ -11,6 +11,7 @@ import { Item } from './Item';
 export class ShopComponent {
 
   items = this.shopService.getItems();
+  cpsSum = 0;
 
   constructor(public gameService: GameService, private shopService: ShopService) {}
 
@@ -19,11 +20,13 @@ export class ShopComponent {
       this.gameService.score -= item.getPrice();
       this.gameService.enableItem(item);
       item.setCount(item.getCount() + 1);
+      this.cpsSum += item.getCps();
     }
   }
 
   restartGame(): void {
-    // reload the page
-    window.location.reload();
+    // reload the page after confirmation
+    let ans = confirm('Are you sure you want to restart the game?');
+    if (ans) window.location.reload();
   }
 }
